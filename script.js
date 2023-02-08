@@ -3,11 +3,6 @@ const input = document.querySelector("#input")
 const ul= document.querySelector(".list");
 
 
-let todos = JSON.parse(localStorage.getItem("todos"));
- todos.forEach(todo => {
-	createTodos(todo)
-})
-
 form.addEventListener('click', (e) => {
 	e.preventDefault();
 	if(!input.value) return;
@@ -16,14 +11,8 @@ form.addEventListener('click', (e) => {
 
 function createTodos(todo) {
 	let inputValue = input.value
-	if(todo){
-		inputValue = todo.name;
-	}
-
+	
 	const liEl = document.createElement("li");
-	if(todo && todo.done){
-		liEl.classList.add("done")
-	}
 	liEl.classList.add("item")
 	ul.appendChild(liEl)
 	
@@ -33,9 +22,6 @@ function createTodos(todo) {
 	input.value = "";
 	
 	const editBtn = document.createElement("div");
-	if(todo && todo.done){
-		editBtn.setAttribute("disabled", "disabled")
-	}
 	editBtn.innerHTML= `<i class="fa fa-pencil">`;
 	const doneBtn = document.createElement("div");
 	doneBtn.innerHTML= `<i class="fa fa-check">`;
@@ -46,7 +32,7 @@ function createTodos(todo) {
 	doneBtn.addEventListener('click', () => {
 		liEl.classList.toggle('done');
 		editBtn.toggleAttribute("disabled")
-		setStorage()
+		
 	
 	})
 
@@ -56,28 +42,16 @@ function createTodos(todo) {
 			const currentValue = editBtn.parentElement.firstChild.innerText;
 			const newValue = prompt(`Replace '${currentValue}'?`, `${currentValue}`);
 			newValue ? parent.innerText = newValue : "";
-			setStorage()
+			
 		} 
 	})
 
 	delBtn.addEventListener('click', () => {
 		if(confirm('Are you sure you want to delete the task?')){
 			liEl.remove()
-			setStorage()
+			
 		}
 	})
-	setStorage()
+	
 }
 
-function setStorage () {
-	const todosEl = document.querySelectorAll("li")
-	todos = []
-	todosEl.forEach(todo => {
-		todos.push({
-			name: todo.innerText,
-			done: todo.classList.contains("done")
-		})
-	})
-
-	localStorage.setItem("todos", JSON.stringify(todos))
-}
