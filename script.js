@@ -56,6 +56,7 @@ function createTodos(todo) {
 			const currentValue = editBtn.parentElement.firstChild.innerText;
 			const newValue = prompt(`Replace '${currentValue}'?`, `${currentValue}`);
 			newValue ? parent.innerText = newValue : "";
+			setStorage()
 		} 
 	})
 
