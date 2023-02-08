@@ -5,7 +5,7 @@ const ul= document.querySelector(".list");
 
 let todos = JSON.parse(localStorage.getItem("todos"));
 const lists = todos.map(todo => {
-	createTodos(todo)
+	return createTodos(todo)
 })
 
 form.addEventListener('click', (e) => {
