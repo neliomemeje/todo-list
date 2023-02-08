@@ -106,7 +106,7 @@ p{
 	color: black;
 }
 
-.list .item .fa-check{
+.list .item .fa-check-square{
 	position: absolute;
 	top: 50%;
 	right: 30px;
@@ -120,7 +120,7 @@ p{
 }
 
 
-.list .item.done .fa-check{
+.list .item.done .fa-check-square{
 	opacity: 0.3;
 }
 
@@ -140,7 +140,7 @@ p{
 	opacity: 0.4;
 }
 
-.fa-check:hover{
+.fa-check-square:hover{
 	opacity: 0.4;
 }
 
