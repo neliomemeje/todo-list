@@ -4,8 +4,8 @@ const ul= document.querySelector(".list");
 
 
 let todos = JSON.parse(localStorage.getItem("todos"));
-const lists = todos.map(todo => {
-	return createTodos(todo)
+ todos.forEach(todo => {
+	createTodos(todo)
 })
 
 form.addEventListener('click', (e) => {
