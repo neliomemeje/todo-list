@@ -24,7 +24,7 @@ function createTodos(todo) {
 	const editBtn = document.createElement("div");
 	editBtn.innerHTML= `<i class="fa fa-pencil">`;
 	const doneBtn = document.createElement("div");
-	doneBtn.innerHTML= `<i class="fa fa-check">`;
+	doneBtn.innerHTML= `<i class="fa fa-check-square">`;
 	const delBtn = document.createElement("div");
 	delBtn.innerHTML= `<i class="fa fa-trash">`;
 	liEl.append(editBtn, doneBtn, delBtn)
