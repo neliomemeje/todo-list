@@ -4,9 +4,9 @@ const ul= document.querySelector(".list");
 
 
 let todos = JSON.parse(localStorage.getItem("todos"));
-todos.forEach(task => {
-	createTodos(task)
-})
+for(let i=0; i<todos.length; i++){
+	createTodos(todos[i])
+}
 
 form.addEventListener('click', (e) => {
 	e.preventDefault();
@@ -14,10 +14,10 @@ form.addEventListener('click', (e) => {
 	createTodos()
 })
 
-function createTodos(task) {
+function createTodos(todos) {
 	let inputValue = input.value
-	if(task){
-		inputValue = task.name;
+	if(todos){
+	   inputValue = todos.name
 	}
 
 	const liEl = document.createElement("li");
