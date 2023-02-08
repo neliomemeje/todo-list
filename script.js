@@ -4,7 +4,7 @@ const ul= document.querySelector(".list");
 
 
 let todos = JSON.parse(localStorage.getItem("todos"));
-todos.forEach(todo => {
+const lists = todos.map(todo => {
 	createTodos(todo)
 })
 
